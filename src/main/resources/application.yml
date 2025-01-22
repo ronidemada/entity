@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: springbootexercice
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/entityjpa
+    username: postgres
+    password: adminadmin
+  jpa:
+      show_sql: true
+      format_sql: true
+      hibernate:
+        ddl-auto: create-drop
