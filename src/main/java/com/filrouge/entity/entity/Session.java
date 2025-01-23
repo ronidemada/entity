@@ -21,8 +21,9 @@ public class Session {
     private int id;
     @Column ( name = "mode_de_jeu",nullable = false, length = 100)
     private String mode_de_jeu;
-    @ManyToMany(mappedBy = "sessions")
-    private List<Player> players = new ArrayList<>();
     @ManyToOne
     private Quizz quizz;
+
+    @OneToMany(mappedBy = "session")
+    private List<PlayerSession> playerSessions = new ArrayList<>();
 }

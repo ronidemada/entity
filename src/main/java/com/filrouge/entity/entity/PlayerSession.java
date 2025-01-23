@@ -6,21 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name="PLAYER")
-public class Player {
+@Table(name="PLAYERSESSION")
+public class PlayerSession {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column ( name = "name",nullable = false, length = 100)
-    private String name;
-    @OneToMany(mappedBy = "player")
-    private List<PlayerSession> playerSessions = new ArrayList<>();
+
+    @ManyToOne
+    private Player player;
+
+    @ManyToOne
+    private Session session;
+
+    private int score;
 }
