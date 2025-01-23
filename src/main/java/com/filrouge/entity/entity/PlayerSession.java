@@ -25,4 +25,6 @@ public class PlayerSession {
     private Session session;
 
     private int score;
+
+    private String date;
 }

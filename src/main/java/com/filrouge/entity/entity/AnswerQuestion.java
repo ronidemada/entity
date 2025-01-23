@@ -6,25 +6,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table(name="ANSWER")
-public class Answer {
+@Table(name="ANSWERQUESTION")
+public class AnswerQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column ( name = "value",nullable = false, length = 100)
-    private String value;
+    @ManyToOne
+    private Answer answer;
 
-    @OneToMany(mappedBy = "answer")
-    private List<AnswerQuestion> answerQuestion = new ArrayList<>();
+    @ManyToOne
+    private Question question;
 
-
+    private boolean correct;
 }

@@ -32,6 +32,6 @@ public class Question {
     @ManyToMany(mappedBy = "questions")
     private List<Category> categories = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "questions")
-    private List<Answer> answers = new ArrayList<>();
+    @OneToMany(mappedBy = "question")
+    private List<AnswerQuestion> answerQuestion = new ArrayList<>();
 }
